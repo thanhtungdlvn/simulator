@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "ANY",
+    "urlPattern": ".*"
+  },
+  "response": {
+    "status": 400,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "message": "Resource Not Found",
+      "reason": "NOT_FOUND",
+      "status": 404
+    }
+  }
+}
