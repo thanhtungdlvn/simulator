@@ -6,7 +6,7 @@ Feature: Get card details
 
   Scenario: 1 - Card details get 200 OK response
     * def query = {srcClientId: '1'}
-    Given path '/api/users/1/3'
+    Given path '/api/users/1'
     When method GET
     * print response
     Then status 200
