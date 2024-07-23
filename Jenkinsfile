@@ -4,7 +4,7 @@ pipeline {
 	environment {
 		mavenHome = tool 'jenkins-maven'
 
-		SONAR_URL='http://localhost:9000'
+		SONAR_URL='http://localhost:9090'
         SONAR_LOGIN='sqp_221a74787cd6d42675569f215a38dab8ae7aadb3'
 	}
 
