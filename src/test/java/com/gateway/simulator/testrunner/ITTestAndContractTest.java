@@ -15,7 +15,7 @@ public class ITTestAndContractTest {
     @Karate.Test
     public Karate runTest() {
         String path = System.getProperty("user.dir") + "/src/test/java/com/gateway/simulator/interationtests";
-        System.setProperty("application.URL", "http://localhost:" + 9090 + "/");
+        System.setProperty("application.URL", "http://localhost:" + 9191 + "/");
         return Karate.run(path + "/getCard.feature");
     }
 }

@@ -1,4 +1,4 @@
 wiremock:
-  port: 9090
+  port: 9191
   usingFilesUnderClasspath: wiremock
   verbose: true
