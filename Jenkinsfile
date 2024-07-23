@@ -20,6 +20,12 @@ pipeline {
 			}
 		}
 
+		stage('Black Duck Scan') {
+            steps {
+                blackduckDetect scan: true, reportFormat: 'json'
+            }
+        }
+
 		stage('Test'){
 			steps{
 				bat "mvn test"
