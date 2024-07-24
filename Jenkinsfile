@@ -1,6 +1,10 @@
 pipeline {
 	agent any
 
+	options {
+	    buildDiscarder(logRotator(artifactNumToKeepStr: '5', numToKeepStr: '20'))
+	}
+
 	environment {
 		mavenHome = tool 'jenkins-maven'
 
@@ -19,12 +23,6 @@ pipeline {
 				bat "mvn clean install -DskipTests"
 			}
 		}
-
-		stage('Black Duck Scan') {
-            steps {
-                blackduckDetect scan: true, reportFormat: 'json'
-            }
-        }
 
 		stage('Test'){
 			steps{
