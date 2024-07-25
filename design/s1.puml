@@ -1,0 +1,29 @@
+@startuml
+
+box "Internal Service" #LightYellow
+actor Merchant as A0
+participant scd as A1
+
+A0 -> A1: ISO
+activate A1
+
+A1 -> Backend: RPC calls
+activate Backend
+
+end box
+
+box "Cloud Service" #LightGrey
+Backend -> vre: retrieveInformation
+
+activate vre
+vre --> Backend: Information details
+
+note left: Parse the request\n to the RPC
+
+Backend -> authService ++ : Will authenticate
+end box
+authService --> A1 --: Response
+
+A1 -> A0:  AUTHENTICATE_PAYER
+
+@enduml
