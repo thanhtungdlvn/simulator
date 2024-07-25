@@ -36,5 +36,18 @@ pipeline {
                 bat "mvn clean verify sonar:sonar -Dsonar.projectKey=simulator -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN"
 		    }
 		}
+		stage('Publish Report'){
+		    steps {
+		        echo "Publish Karate Report"
+		        publishHTML (target: [
+                      allowMissing: false,
+                      alwaysLinkToLastBuild: false,
+                      keepAll: true,
+                      reportDir: './target/karate-reports',
+                      reportFiles: 'karate-summary.html',
+                      reportName: "Karate Report"
+                    ])
+		    }
+		}
 	}
 }
